@@ -1,21 +1,25 @@
 const validator = {
   maskify: function (dato){
-    //alert(dato); 
-    let enmascarado = "#".repeat(String(dato).length-4) + String(dato).slice(-4);
+    if (String(dato).length<4){
+        return String(dato)
+
+    }
+    else{
+    
+        let enmascarado = "#".repeat(String(dato).length-4) + String(dato).slice(-4);
+    
     //let nrever = String(dato).split("").reverse().join(""); //el dato se vuelve array cuando se aplica split y deja de serlo con join
-    
-    
-    //for(p = 12; p<=15; p++){
-        //enmascarado= enmascarado + nrever[p]
         
     return enmascarado;
+    }
 },
+
   isValid: function (dato){
   
     var sumatoria=0;
 
     var nrever = String(dato).split("").reverse().join("");
-    //console.log(nrever)
+    console.log(nrever)  //el dato se vuelve array cuando se aplica split y deja de serlo con join
     
     for (var indice = 0; indice< nrever.length; indice++){
 
@@ -41,7 +45,7 @@ const validator = {
         }
     else{
         //alert ("inválida");
-        return "Tarjeta Invalida Vuelve a intentarlo"
+        return "Tarjeta Invalida \n Vuelve a intentarlo"
     }
 
 }
